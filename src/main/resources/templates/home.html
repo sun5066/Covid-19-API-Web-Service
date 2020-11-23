@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid-19</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<th:block th:include="header"/>
+<ul th:each="covid : ${COVID_LIST}" th:object="${covid}">
+    <li th:class="country" th:text="*{countryName}"></li>
+
+    <label>신규확진자수</label>
+    <p th:text="*{newCase}"></p>
+
+    <label>확진자수</label>
+    <p th:text=" *{totalCase}"></p>
+
+    <label>완치자수</label>
+    <p th:text="*{recovered}"></p>
+
+    <label>사망자</label>
+    <p th:text=" *{death}"></p>
+
+    <label>발생률</label>
+    <p th:text="*{percentage}"></p>
+
+    <label>지역발생</label>
+    <p th:text=" *{newFcase}"></p>
+
+    <label>해외유입</label>
+    <p th:text="*{newCcase}"></p>
+</ul>
+</body>
+</html>
